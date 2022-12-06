@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RFS helper</title>
+    <style id="generated-style"></style>
+  </head>
+  <body>
+    <div id="app">
+      <section>
+        <h1 class="element">RFS helper</h1>
+        <form name="values">
+          <div>
+            <label for="size">Size</label>
+            <input
+              id="size"
+              name="size"
+              placeholder="E.g. 2.5rem"
+              value="2.5rem"
+            />
+          </div>
+        </form>
+      </section>
+
+      <section>
+        <h2>Options</h2>
+        <form name="options">
+          <div>
+            <label for="base-value">Base value (px)</label>
+            <input
+              id="base-value"
+              name="baseValue"
+              type="range"
+              min="-48"
+              max="96"
+              value="20"
+            />
+            <span class="value"></span>
+          </div>
+          <div>
+            Unit
+            <label>
+              rem <input name="unit" type="radio" value="rem" checked />
+            </label>
+            <label>px <input name="unit" type="radio" value="px" /></label>
+          </div>
+          <div>
+            <label for="breakpoint">Breakpoint (px)</label>
+            <input
+              id="breakpoint"
+              name="breakpoint"
+              type="range"
+              min="1"
+              max="2000"
+              value="1200"
+              list="breakpoint-ticks"
+            />
+            <datalist id="breakpoint-ticks">
+              <option>1</option>
+              <option>800</option>
+              <option>1200</option>
+              <option>1600</option>
+              <option>2000</option>
+            </datalist>
+          </div>
+          <div>
+            Breakpoint unit
+            <label>
+              rem
+              <input name="breakpointUnit" type="radio" value="rem" checked />
+            </label>
+            <label>
+              px <input name="breakpointUnit" type="radio" value="px" />
+            </label>
+          </div>
+          <div>
+            Breakpoint mode
+            <label>
+              min
+              <input name="mode" type="radio" value="min-media-query" checked />
+            </label>
+            <label>
+              max <input name="mode" type="radio" value="max-media-query" />
+            </label>
+          </div>
+        </form>
+      </section>
+
+      <section>
+        <h2>Result</h2>
+        <pre id="result"></pre>
+      </section>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
