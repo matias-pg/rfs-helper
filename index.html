@@ -4,68 +4,76 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RFS helper</title>
-    <style id="generated-style"></style>
+    <style id="style"></style>
   </head>
   <body>
     <div id="app">
-      <section>
+      <header>
         <h1 class="element">RFS helper</h1>
-        <form name="values">
-          <div>
-            <label for="size">Size</label>
-            <input
-              id="size"
-              name="size"
-              placeholder="E.g. 2.5rem"
-              value="2.5rem"
-            />
-          </div>
-        </form>
-      </section>
+      </header>
 
       <section>
         <h2>Options</h2>
-        <form name="options">
+        <div class="option">
+          <label for="size">Size</label>
+          <input
+            id="size"
+            name="size"
+            placeholder="E.g. 2.5rem"
+            value="2.5rem"
+          />
+        </div>
+        <div class="option">
+          <label for="base-value">Base value (px)</label>
+          <input
+            id="base-value"
+            name="baseValue"
+            type="range"
+            min="-48"
+            max="96"
+            value="20"
+            list="base-value-ticks"
+          />
+          <datalist id="base-value-ticks">
+            <option>-20</option>
+            <option>0</option>
+            <option>20</option>
+            <option>40</option>
+          </datalist>
+        </div>
+
+        <div class="option">
+          Unit
           <div>
-            <label for="base-value">Base value (px)</label>
-            <input
-              id="base-value"
-              name="baseValue"
-              type="range"
-              min="-48"
-              max="96"
-              value="20"
-            />
-            <span class="value"></span>
-          </div>
-          <div>
-            Unit
             <label>
               rem <input name="unit" type="radio" value="rem" checked />
             </label>
             <label>px <input name="unit" type="radio" value="px" /></label>
           </div>
+        </div>
+
+        <div class="option">
+          <label for="breakpoint">Breakpoint (px)</label>
+          <input
+            id="breakpoint"
+            name="breakpoint"
+            type="range"
+            min="400"
+            max="2000"
+            value="1200"
+            list="breakpoint-ticks"
+          />
+          <datalist id="breakpoint-ticks">
+            <option>800</option>
+            <option>1200</option>
+            <option>1600</option>
+            <option>2000</option>
+          </datalist>
+        </div>
+
+        <div class="option">
+          Breakpoint unit
           <div>
-            <label for="breakpoint">Breakpoint (px)</label>
-            <input
-              id="breakpoint"
-              name="breakpoint"
-              type="range"
-              min="1"
-              max="2000"
-              value="1200"
-              list="breakpoint-ticks"
-            />
-            <datalist id="breakpoint-ticks">
-              <option>1</option>
-              <option>800</option>
-              <option>1200</option>
-              <option>1600</option>
-              <option>2000</option>
-            </datalist>
-          </div>
-          <div>
-            Breakpoint unit
             <label>
               rem
               <input name="breakpointUnit" type="radio" value="rem" checked />
@@ -74,8 +82,11 @@
               px <input name="breakpointUnit" type="radio" value="px" />
             </label>
           </div>
+        </div>
+
+        <div class="option">
+          Breakpoint mode
           <div>
-            Breakpoint mode
             <label>
               min
               <input name="mode" type="radio" value="min-media-query" checked />
@@ -84,7 +95,7 @@
               max <input name="mode" type="radio" value="max-media-query" />
             </label>
           </div>
-        </form>
+        </div>
       </section>
 
       <section>

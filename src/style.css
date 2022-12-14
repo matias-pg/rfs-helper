@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 1rem;
@@ -39,9 +45,24 @@ h1 {
   margin: 0 auto;
   padding: 1rem;
   text-align: center;
+  width: 100%;
+}
+
+section {
+  max-width: calc(600px - 2rem);
+  margin: 0 auto;
+}
+
+.option {
+  display: flex;
+  justify-content: space-between;
 }
 
 #result {
   text-align: left;
   margin-bottom: 0;
+  padding: 0.5rem;
+  overflow-x: auto;
+  border: 1px solid #aaa;
+  border-radius: 0.5rem;
 }

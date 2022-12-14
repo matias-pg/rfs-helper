@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build --base=/rfs/",
+    "deploy": "deploy dist tools.matiaspg.dev rfs",
     "preview": "vite preview"
   },
   "devDependencies": {
