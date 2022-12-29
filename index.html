@@ -100,7 +100,17 @@
 
       <section>
         <h2>Result</h2>
-        <pre id="result"></pre>
+        <div id="result-container">
+          <pre id="result"></pre>
+          <button id="copy-btn">
+            <!-- TODO: Add this icon to a local assets folder -->
+            <!-- TODO: Show a feedback (like a tooltip) to indicate that the contents were copied -->
+            <img
+              width="20"
+              src="https://icons.getbootstrap.com/assets/icons/clipboard.svg"
+            />
+          </button>
+        </div>
       </section>
     </div>
     <script type="module" src="/src/main.js"></script>

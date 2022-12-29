@@ -58,11 +58,39 @@ section {
   justify-content: space-between;
 }
 
-#result {
-  text-align: left;
-  margin-bottom: 0;
-  padding: 0.5rem;
-  overflow-x: auto;
+#result-container {
+  position: relative;
   border: 1px solid #aaa;
   border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+#result {
+  text-align: left;
+  margin: 0;
+  padding: 0.5rem;
+  overflow-x: auto;
+}
+
+#copy-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  border-top-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  transition: 0.2s ease background-color;
+}
+
+#copy-btn:hover {
+  background-color: #eee;
+}
+
+#copy-btn:active {
+  background-color: #4ade80;
 }

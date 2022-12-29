@@ -2,7 +2,7 @@
  * Puts the input value to the object, with the input's name being the key.
  *
  * The value is set according to the input type, in the following way:
- * - Checkboxes: the value is whether the checkbox is checked or not
+ * - Checkboxes: the value is whether the checkbox is checked or not (boolean)
  * - Range & number inputs: the value is the numeric value of the input
  * - Other inputs: the value is the raw (string) input value
  *
@@ -12,6 +12,7 @@
 export function setInputValueToObj(input, obj) {
   const { name } = input;
 
+  // Add more cases if needed
   switch (input.type) {
     case "checkbox":
       return (obj[name] = input.checked);
