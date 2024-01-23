@@ -1,29 +1,18 @@
 import { generateCSS } from "./utils/css";
-import { setInputValueToObj } from "./utils/form";
+import { getFormValue } from "./utils/form";
 
-export default function setupRfs({
-  inputs,
-  resultEl,
-  styleEl,
-  copyBtn,
-  state,
-}) {
-  function renderResult(state) {
-    const generatedCSS = generateCSS(state);
+export default function setupRfs({ form, resultEl, styleEl, copyBtn }) {
+  function renderResult() {
+    const options = getFormValue(form);
+    const generatedCSS = generateCSS(options);
 
     // Show the generated CSS and set it to a <style> tag to preview the result
     styleEl.innerHTML = resultEl.innerHTML = generatedCSS;
   }
 
-  renderResult(state);
-
-  // When the inputs change, update the state and render the result
-  inputs.forEach((input) =>
-    input.addEventListener("input", function () {
-      setInputValueToObj(this, state);
-      renderResult(state);
-    })
-  );
+  // Render the result on load and after an input changes
+  renderResult();
+  form.addEventListener("input", renderResult);
 
   // Copy the CSS to the clipboard when the copy button is clicked
   copyBtn.addEventListener("click", () => {

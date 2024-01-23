@@ -19,7 +19,7 @@ import rfs from "rfs/lib/rfs";
  * @param {Options} options Options to be passed to RFS
  * @returns {string} The CSS
  */
-export function generateCSS(options) {
+export function generateCSS({ selector, ...options }) {
   // The rfs() PostCSS function needs to be called for RFS to process it
   const valueToTransform = `rfs(${options.size})`;
 
@@ -30,12 +30,12 @@ export function generateCSS(options) {
   const fluidValue = rfsInstance.fluidValue(valueToTransform);
   const mediaQuery = rfsInstance.renderMediaQuery(valueToTransform);
 
-  return `.element {
+  return `${selector} {
   font-size: ${fluidValue};
 }
 
 ${mediaQuery} {
-  .element {
+  ${selector} {
     font-size: ${value};
   }
 }`;

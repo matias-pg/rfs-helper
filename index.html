@@ -9,21 +9,19 @@
   <body>
     <div id="app">
       <header>
-        <h1 class="element">RFS helper</h1>
+        <h1 class="title has-tip">
+          RFS helper
+          <div class="tip">Try resizing this window!</div>
+        </h1>
       </header>
 
-      <section>
-        <h2>Options</h2>
-        <div class="option">
+      <form action="#" autocomplete="off">
+        <div class="option" title="The static font-size you want to use">
           <label for="size">Size</label>
-          <input
-            id="size"
-            name="size"
-            placeholder="E.g. 2.5rem"
-            value="2.5rem"
-          />
+          <input id="size" name="size" placeholder="E.g. 4rem" value="4rem" />
         </div>
-        <div class="option">
+
+        <div class="option" title="The smallest font-size">
           <label for="base-value">Base value (px)</label>
           <input
             id="base-value"
@@ -42,7 +40,7 @@
           </datalist>
         </div>
 
-        <div class="option">
+        <div class="option" title="The unit to use as the font-size">
           Unit
           <div>
             <label>
@@ -52,7 +50,10 @@
           </div>
         </div>
 
-        <div class="option">
+        <div
+          class="option"
+          title="Breakpoint at which the static / dynamic font-size will take effect"
+        >
           <label for="breakpoint">Breakpoint (px)</label>
           <input
             id="breakpoint"
@@ -71,35 +72,50 @@
           </datalist>
         </div>
 
-        <div class="option">
+        <div class="option" title="The unit to use as the breakpoint">
           Breakpoint unit
           <div>
             <label>
               rem
-              <input name="breakpointUnit" type="radio" value="rem" checked />
+              <input name="breakpointUnit" type="radio" value="rem" />
             </label>
             <label>
-              px <input name="breakpointUnit" type="radio" value="px" />
+              px <input name="breakpointUnit" type="radio" value="px" checked />
             </label>
           </div>
         </div>
 
-        <div class="option">
+        <div
+          class="option"
+          title="min: use the static font-size on screens bigger than the breakpoint; max: the contrary"
+        >
           Breakpoint mode
           <div>
             <label>
-              min
+              min-width
               <input name="mode" type="radio" value="min-media-query" checked />
             </label>
             <label>
-              max <input name="mode" type="radio" value="max-media-query" />
+              max-width
+              <input name="mode" type="radio" value="max-media-query" />
             </label>
           </div>
         </div>
-      </section>
+
+        <div class="option" title="Selector to use in the generated CSS">
+          <label for="selector">Selector</label>
+          <input
+            id="selector"
+            name="selector"
+            placeholder="E.g. .title"
+            value=".title"
+            title="Dare to write .option here?"
+          />
+        </div>
+      </form>
 
       <section>
-        <h2>Result</h2>
+        <h2>Generated CSS</h2>
         <div id="result-container">
           <pre id="result"></pre>
           <button id="copy-btn">

@@ -2,6 +2,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  /* To prevent the options from wrapping in small screens (<375px)*/
+  white-space: nowrap;
 }
 
 :root {
@@ -9,6 +11,7 @@
   font-size: 1rem;
   line-height: 1.5;
   font-weight: 400;
+  height: 100%;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -25,8 +28,7 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 h1 {
@@ -48,6 +50,7 @@ h1 {
   width: 100%;
 }
 
+form,
 section {
   max-width: calc(600px - 2rem);
   margin: 0 auto;
@@ -70,6 +73,7 @@ section {
   margin: 0;
   padding: 0.5rem;
   overflow-x: auto;
+  white-space: pre;
 }
 
 #copy-btn {
@@ -93,4 +97,30 @@ section {
 
 #copy-btn:active {
   background-color: #4ade80;
+}
+
+.has-tip {
+  position: relative;
+}
+
+.has-tip .tip {
+  position: absolute;
+  bottom: -1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  font-weight: normal;
+
+  color: transparent;
+  animation: transparent-color 1s infinite;
+}
+
+@keyframes transparent-color {
+  0% {
+    color: transparent;
+  }
+
+  50% {
+    color: #000;
+  }
 }

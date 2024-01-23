@@ -1,25 +1,34 @@
 /**
- * Puts the input value to the object, with the input's name being the key.
- *
- * The value is set according to the input type, in the following way:
- * - Checkboxes: the value is whether the checkbox is checked or not (boolean)
+ * Gets the value of an input, transforming it according to the input's type
+ * the following way:
+ * - Checkboxes: the value is whether the checkbox is checked (boolean)
  * - Range & number inputs: the value is the numeric value of the input
  * - Other inputs: the value is the raw (string) input value
  *
- * @param {HTMLInputElement} input
- * @param {Object} obj
+ * @param {HTMLInputElement} input From where to get the value
  */
-export function setInputValueToObj(input, obj) {
-  const { name } = input;
-
-  // Add more cases if needed
+export function getInputValue(input) {
+  // Add more cases when needed
   switch (input.type) {
     case "checkbox":
-      return (obj[name] = input.checked);
-    case "range":
+      return input.checked;
     case "number":
-      return (obj[name] = Number(input.value));
-    default:
-      return (obj[name] = input.value);
+    case "range":
+      return Number(input.value);
   }
+  return input.value;
+}
+
+/**
+ * Gets the value of the form as an object.
+ *
+ * @param {HTMLFormElement} form
+ * @returns {Record<string, string | number | boolean>}
+ */
+export function getFormValue(form) {
+  return [...form.elements].reduce((acc, input) => {
+    // Prevent an unchecked radio from overriding the value of a checked one
+    if (input.type === "radio" && !input.checked) return acc;
+    return { ...acc, [input.name]: getInputValue(input) };
+  }, {});
 }
